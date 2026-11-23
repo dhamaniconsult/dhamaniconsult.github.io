@@ -22,7 +22,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <!-- HOLDING PAGE. Replaced in full by the complete site once the launch gates clear. Same URL, no DNS change needed at swap. -->
 <!-- Phone is the current professional number; update site, schema and CV together if it changes. -->
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "Dhamani Consult", "url": "https://dhamaniconsult.pro", "logo": "https://dhamaniconsult.pro/assets/dhamani-consult-logo-512.png", "email": "info@dhamaniconsult.pro", "telephone": "+250788389884", "sameAs": ["https://www.linkedin.com/company/dhamaniconsult/"], "description": "Principal-led fractional CFO and finance advisory practice in Kigali, Rwanda: capital raising and structuring, restructuring and turnaround, funder-side assurance, finance function and ERP.", "address": {"@type": "PostalAddress", "addressLocality": "Kigali", "addressCountry": "RW"}, "areaServed": ["Rwanda", "East Africa", "Central Africa", "Southern Africa"], "founder": {"@type": "Person", "name": "Simon O. Oyier", "jobTitle": "Principal, Finance & Strategy", "hasCredential": ["CMA (ICMA Australia & New Zealand)", "MBA Finance", "BA Business and Management, Leeds Beckett University"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "Dhamani Consult", "url": "https://dhamaniconsult.pro", "logo": "https://dhamaniconsult.pro/assets/dhamani-consult-logo-512.png", "email": "info@dhamaniconsult.pro", "telephone": "+250788389884", "sameAs": ["https://www.linkedin.com/company/dhamaniconsult/"], "description": "Principal-led fractional CFO and finance advisory practice in Kigali, Rwanda: capital raising and structuring, restructuring and turnaround, funder-side assurance, finance function and ERP.", "address": {"@type": "PostalAddress", "addressLocality": "Kigali", "addressCountry": "RW"}, "areaServed": ["Rwanda", "East Africa", "Central Africa", "Southern Africa"], "founder": {"@type": "Person", "name": "Simon O. Oyier", "jobTitle": "Principal, Finance & Strategy", "hasCredential": ["CMA (ICMA Australia & New Zealand)", "MBA Finance", "BA Business and Management, Leeds Beckett University"], "sameAs": ["https://www.linkedin.com/in/simon-oyier/"]}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -101,12 +101,13 @@
   .lines b { font-weight: 600; font-size: 16px; }
   .lines span { font-family: var(--mono); font-size: 13px; color: var(--accent); align-self: center; }
 
-  .principal { margin-top: 28px; font-size: 15.5px; color: var(--ink-soft); max-width: 36em; }
+  .side { display: grid; gap: 28px; align-content: start; }
+  .principal { margin: 0; font-size: 15.5px; color: var(--ink-soft); max-width: 36em; }
   .principal strong { color: var(--ink); font-weight: 600; }
 
   /* Ledger */
   .ledger { background: var(--surface); border: 1px solid var(--rule); border-radius: 4px; padding: 26px 26px 20px; }
-  .ledger header { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .ledger header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 12px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
   .ledger header h2 { font-size: 21px; }
   .ledger ul { list-style: none; margin: 0; padding: 0; }
   .ledger li { display: grid; grid-template-columns: auto 1fr auto; align-items: baseline; gap: 10px; padding-block: 13px; border-bottom: 1px solid var(--rule); }
@@ -155,14 +156,13 @@
         <li><b>Funder-side assurance</b><span>When a funder needs an independent read</span></li>
         <li><b>Finance function, controls and ERP</b><span>When finance can't keep up</span></li>
       </ul>
-
-      <p class="principal">Every mandate is led by the firm's <strong>Principal, Finance &amp; Strategy</strong>: fifteen years in senior finance leadership across seven African markets, reporting to boards and shareholders. He holds an MBA in Finance, is a Certified Management Accountant (ICMA-ANZ), and is currently working on a DBA researching the strategic maturity of finance functions in early-stage Rwandan SMEs.</p>
     </div>
 
+    <div class="side">
     <aside class="ledger" aria-labelledby="ledger-title">
       <header>
         <h2 id="ledger-title">On the record</h2>
-        <span class="label">Career to date</span>
+        <span class="label">Simon O. Oyier · career to date</span>
       </header>
       <ul>
         <li><span class="what">Capital secured<small>DFI, export credit, bank, grant and private capital</small></span><span class="dots"></span><span class="val">US$100M+</span></li>
@@ -172,6 +172,9 @@
         <li><span class="what">Peak annual P&amp;L owned<small>Group operations, Rwanda and Burundi</small></span><span class="dots"></span><span class="val">US$30M</span></li>
       </ul>
     </aside>
+
+    <p class="principal">Every mandate is led by <strong>Simon O. Oyier</strong>, the firm's Principal, Finance &amp; Strategy: fifteen years in senior finance leadership across seven African markets, reporting to boards and shareholders. He holds an MBA in Finance, is a Certified Management Accountant (ICMA-ANZ), and is currently working on a DBA researching the strategic maturity of finance functions in early-stage Rwandan SMEs.</p>
+    </div>
   </div>
 
   <section class="contact-band" id="contact" aria-labelledby="contact-title">
@@ -190,6 +193,7 @@
         <div class="addr"><a href="tel:+250788389884">+250 788 389 884</a></div>
         <p><a href="https://wa.me/250788389884" rel="noopener" style="color:var(--accent);font-weight:600">Message on WhatsApp</a></p>
         <p><a href="https://www.linkedin.com/company/dhamaniconsult/" style="color:var(--accent);font-weight:600">Dhamani Consult on LinkedIn</a></p>
+        <p><a href="https://www.linkedin.com/in/simon-oyier/" rel="me" style="color:var(--accent);font-weight:600">Simon O. Oyier on LinkedIn</a></p>
         <p>Kigali, Rwanda. Mandates across East, Central and Southern Africa.</p>
       </div>
     </div>
