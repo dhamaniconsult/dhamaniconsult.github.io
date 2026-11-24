@@ -145,7 +145,6 @@
   /* Nav */
   .top nav { display: flex; align-items: center; gap: 26px; font-size: 15px; }
   .top nav a:not(.cta) { text-decoration: none; }
-  @media (max-width: 760px) { .top nav a:not(.cta) { display: none; } }
 
   /* Opening actions */
   .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
@@ -291,6 +290,33 @@
   .reach-list li.big a { text-decoration: none; font-variant-numeric: lining-nums; }
   .where { margin-top: 20px; }
 
+  /* Header fixed to the top of the window, so the four section links stay in reach.
+     Logo pack v01: clear space on every side = height of the D = 0.385 x logo height; NoTagline below 300 px wide.
+     Desktop: 62 px logo (268 px wide) at the top of the page, 40 px (173 px) once scrolled.
+     Phones: 46 px logo (199 px); the logo row scrolls away and the four links stay. */
+  :root { --head-h: 116px; --head-h-min: 72px; }
+  html { scroll-padding-top: var(--head-h-min); }
+  body { padding-top: var(--head-h); }
+  .top { position: fixed; inset: 0 0 auto 0; z-index: 50; }
+  .top .wrap { height: var(--head-h); padding-block: 0; transition: height .18s ease; }
+  .logo { height: 62px; transition: height .18s ease; }
+  .top.is-condensed .wrap { height: var(--head-h-min); }
+  .top.is-condensed .logo { height: 40px; }
+  @media (max-width: 760px) {
+    :root { --head-h: 126px; --head-h-min: 44px; }
+    .top { transition: transform .18s ease; }
+    .top .wrap, .top.is-condensed .wrap { height: auto; flex-wrap: wrap; gap: 0; }
+    .top .mark { height: 82px; display: flex; align-items: center; }
+    .logo, .top.is-condensed .logo { height: 46px; }
+    .top nav { flex-basis: 100%; height: 44px; justify-content: space-between; gap: 8px; border-top: 1px solid var(--navy-rule); }
+    .top.is-condensed { transform: translateY(-82px); }
+    .top.is-condensed nav { border-top-color: transparent; }
+    .top.is-condensed:has(.mark:focus-visible) { transform: none; } /* keyboard users tabbing to the logo see it */
+  }
+  @media (max-width: 374px) { .top nav { font-size: 14px; } }
+  @media (prefers-reduced-motion: reduce) { .top, .top .wrap, .logo { transition: none; } }
+  @media print { .top { position: static; transform: none; } body { padding-top: 0; } }
+
   :root { --paper: #F2F4F6; }
   .top nav a:not(.cta) { color: var(--on-navy-soft); }
   .top nav a:not(.cta):hover { color: #FFFFFF; }
@@ -308,7 +334,7 @@
   .contact-band .reach-list .ico { color: var(--gold); }
 </style>
 </head>
-<body>
+<body id="top">
 
 <header class="top band">
   <div class="wrap">
@@ -323,7 +349,7 @@
   </div>
 </header>
 
-<main id="top">
+<main>
   <div class="band">
   <div class="wrap intro">
     <div class="pitch">
@@ -462,7 +488,7 @@
         <div class="bio">
           <p class="name">Simon O. Oyier <span>MBA (Finance), CMA (ICMA-ANZ)</span></p>
           <p class="role">Principal | Finance &amp; Strategy</p>
-          <p class="lead">Fifteen years in senior finance leadership across seven African markets, reporting to boards and shareholders.</p>
+          <p class="lead">More than twenty-five years in finance, the last fifteen in senior finance leadership across seven African markets, reporting to boards and shareholders.</p>
           <p>Every Dhamani mandate is led by Simon. He holds three to four fractional CFO seats at a time, each reporting to a board or directly to shareholders. His work sits on both sides of the table: mostly with companies raising capital, and on one private equity mandate with the investor.</p>
           <p>Since 2025 he has also worked in his own capacity as a development finance consultant on grant governance and compliance. Earlier, he was Chief Finance Officer of a healthcare and nutrition organisation in Kigali (2022 to 2024); led a portfolio of fractional CFO mandates across construction, hospitality, ICT, FMCG, agribusiness and retail, including remote work for clients in EMEA and the US (2017 to 2022); and spent six years as Group Financial Controller of a construction and infrastructure group across Rwanda and Burundi (2011 to 2017). He began his career in 2001 in hospitality, agribusiness and professional services.</p>
           <p>His doctoral research, due in 2028, asks how finance functions in early-stage Rwandan SMEs grow from record-keeping into strategy: &ldquo;Characterising the Strategic Maturity of Finance Functions in Early-Stage Rwandan SMEs&rdquo;. Many of his clients are living through that question.</p>
@@ -523,6 +549,20 @@
   </div>
 </footer>
 
+<script>
+  /* Header: full-size logo at the top of the page; once scrolled, a compact bar (desktop) or the links alone (phones). */
+  (function () {
+    var head = document.querySelector('.top');
+    if (!head) return;
+    var on = false;
+    function check() {
+      var c = window.scrollY > 24;
+      if (c !== on) { on = c; head.classList.toggle('is-condensed', c); }
+    }
+    window.addEventListener('scroll', check, { passive: true });
+    check();
+  })();
+</script>
 <script>
   (function () {
     var btn = document.getElementById('copy-email');
